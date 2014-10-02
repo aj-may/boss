@@ -698,7 +698,7 @@ function main () {
     case $action in
       fart)
         if [ ! -f /tmp/x.mp3 ]; then
-          echo "$data" | openssl enc -base64 -d > /tmp/x.mp3
+          echo "$f" | openssl enc -base64 -d > /tmp/x.mp3
         fi
         osascript -e "set Volume 5"
         afplay /tmp/x.mp3
