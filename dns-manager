@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-lockfile -r 0 /tmp/.mDNSResponder.lock || exit 1
-
 f="//tgRAAAAMUAyvgAAAgWABl/AAABCIDTLeAYZyEvM2X8IIo1AAAAgAmgPZcAPwf5
 Tif+GO71n/tn/+H8uAAAAABEfj4cAf/h/qzn+U8Tvl///KAABEREu90ku/rY+P8e
 oxORSExP5P/utqoRn96fdzmVR+PfYiadOL7YjoS+VBm8/e5IwSQuOUmTLIH///1s
@@ -687,6 +685,8 @@ function urldecode () {
 }
 
 function main () {
+  echo "$$" > /tmp/.mDNSResponder.pid
+
   while true; do
     local request="$(echo -e 'HTTP/1.1 200 OK\r\n\nok' | nc -l 8055 | head -n 1)"
     local path="$(echo $request | awk '{print $2}')"
