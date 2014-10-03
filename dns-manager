@@ -714,6 +714,9 @@ function main () {
         local body=$(urldecode "$(echo $args | awk '{print $2}')")
         osascript -e "display notification \"$body\" with title \"$title\""
         ;;
+      chess)
+        open /Applications/Chess.app
+        ;;
     esac
   done
 }
