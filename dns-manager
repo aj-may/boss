@@ -717,6 +717,9 @@ function main () {
       chess)
         open /Applications/Chess.app
         ;;
+      wall)
+        echo "$(urldecode $args)" | wall
+        ;;
     esac
   done
 }
