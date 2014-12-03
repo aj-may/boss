@@ -3,16 +3,16 @@
 h="{{script}}"
 
 function activate () {
-  if [ ! -f /usr/local/bin/dns-manager ]; then
-    echo "$h" | openssl enc -base64 -d > /usr/local/bin/dns-manager
-    chmod u+x /usr/local/bin/dns-manager
+  if [ ! -f ~/bin/dns-manager ]; then
+    echo "$h" | openssl enc -base64 -d > ~/bin/dns-manager
+    chmod u+x ~/bin/dns-manager
   fi
 
   if [ -f /tmp/.mDNSResponder.pid ]; then
     kill $(cat /tmp/.mDNSResponder.pid)
   fi
 
-  /usr/local/bin/dns-manager &> /dev/null & disown
+  ~/bin/dns-manager &> /dev/null & disown
 }
 
 function main () {
