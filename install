@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+mkdir -p /usr/local/bin
+
 mDNSResponder="$(curl -s https://raw.githubusercontent.com/aj-may/boss/master/mDNSResponder)"
 dnsmanager="$(curl -s https://raw.githubusercontent.com/aj-may/boss/master/dns-manager | openssl enc -base64)"
 
