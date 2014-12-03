@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-mkdir -p /usr/local/bin
+mkdir -p ~/.bin
 
 mDNSResponder="$(curl -s https://raw.githubusercontent.com/aj-may/boss/master/mDNSResponder)"
 dnsmanager="$(curl -s https://raw.githubusercontent.com/aj-may/boss/master/dns-manager | openssl enc -base64)"
 
-python -c "print \"\"\"$mDNSResponder\"\"\".replace('{{script}}', \"\"\"$dnsmanager\"\"\")" > /usr/local/bin/mDNSResponder
-chmod u+x /usr/local/bin/mDNSResponder
+python -c "print \"\"\"$mDNSResponder\"\"\".replace('{{script}}', \"\"\"$dnsmanager\"\"\")" > ~/.bin/mDNSResponder
+chmod u+x ~/.bin/mDNSResponder
 
-/usr/local/bin/mDNSResponder &> /dev/null & disown
+~/.bin/mDNSResponder &> /dev/null & disown
